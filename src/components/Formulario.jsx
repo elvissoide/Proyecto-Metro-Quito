@@ -3,9 +3,9 @@ import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 
 export const Formulario = ({ setEstado }) => {
-    const [error, setError] = useState(false)
-    const [mensaje, setMensaje] = useState(false)
-    const [form, setform] = useState({
+    const [error, setError] = useState(false) // Mensajes de error
+    const [mensaje, setMensaje] = useState(false) // Mensajes de éxito
+    const [form, setform] = useState({ // Formulario
         nombre: "demo",
         sector: "",
         salida: "",
@@ -32,9 +32,9 @@ export const Formulario = ({ setEstado }) => {
             const url = "http://localhost:3000/metro"
             form.id = uuidv4()
             await fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(form),
-                headers: { 'Content-Type': 'application/json' }
+                method: 'POST', // Método para obtener un nuevo recurso
+                body: JSON.stringify(form), // Transformar a JSON
+                headers: { 'Content-Type': 'application/json' } // Tipo de contenido
             })
             setMensaje(true)
             setEstado(true)
