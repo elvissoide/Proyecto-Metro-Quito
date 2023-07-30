@@ -46,7 +46,8 @@ function App() {
           <div className='mt-10 h-[675px] overflow-y-auto'>
             <Listar estado={estado} />
 
-            <Cupcake/>
+            <Cupcake color="bg-orange-500"/>
+            <Cupcake color="bg-red-500"/>
           </div>
         </div>
       </main>

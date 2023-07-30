@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-function Cupcake() {
+function Cupcake({color}) {
     const [amigo, setAmigo] = useState("Enojado")
     useState 
     return (
-        <div>Cupcake {amigo}</div>
+        <div className={color}>Cupcake {amigo}</div>
     )
 }
 
