@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Cupcake() {
+    const [amigo, setAmigo] = useState("Enojado")
+    useState 
     return (
-        <div>Cupcake</div>
+        <div>Cupcake {amigo}</div>
     )
 }
 
