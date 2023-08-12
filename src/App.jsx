@@ -1,7 +1,6 @@
 import './App.css'
 import logoDarkMode from './assets/dark.png'
 import logoMetro from './assets/metro.png'
-import Cupcake from './components/Cupcake'
 import { Formulario } from './components/Formulario'
 import Listar from './components/Listar'
 import { useState } from 'react'
