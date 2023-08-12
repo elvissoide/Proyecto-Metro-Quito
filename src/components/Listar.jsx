@@ -42,10 +42,6 @@ const Listar = ({ estado,setIdmetro }) => {
     }
 
     return (
-        // <>
-        // {/* Fragments */}
-        //     <p>Listado de rutas</p>
-        // </>
         <>
             {
                 rutas.length === 0
