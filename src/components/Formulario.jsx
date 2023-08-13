@@ -2,6 +2,7 @@ import Mensajes from "./Mensajes"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react'
+import Swal from 'sweetalert2'
 
 export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
     // UseState
@@ -35,7 +36,11 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
                     })
                 }
                 catch (error) {
-                    console.log(error);
+                    Swal.fire(
+                        'ERROR',
+                        'Ha ocurrido un error al intentar obtener los datos del registro.',
+                        'error'
+                    )
                 }
             })(idMetro)
         }
@@ -65,6 +70,9 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
                     body: JSON.stringify(form),
                     headers: { 'Content-Type': 'application/json' }
                 })
+                if (!respuesta.ok) {
+                    throw new Error('La solicitud no fue exitosa');
+                }
                 setEstado(true)
                 setform({})
                 setIdMetro(null);
@@ -77,11 +85,14 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
             else {
                 const url = "http://localhost:3000/metro"
                 form.id = uuidv4()
-                await fetch(url, {
+                const respuesta = await fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(form),
                     headers: { 'Content-Type': 'application/json' }
                 })
+                if (!respuesta.ok) {
+                    throw new Error('La solicitud no fue exitosa');
+                }
                 setMensaje(true)
                 setEstado(true)
                 setTimeout(() => {
@@ -91,7 +102,11 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
                 }, 1000);
             }
         } catch (error) {
-            console.log(error);
+            Swal.fire(
+                'ERROR',
+                'Ha ocurrido un error al intentar actualizar o crear el registro.',
+                'error'
+            )
         }
 
     }

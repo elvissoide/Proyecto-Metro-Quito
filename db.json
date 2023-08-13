@@ -18,22 +18,13 @@
   },
   "metro": [
     {
-      "nombre": "test324",
-      "sector": "test",
-      "salida": "test",
-      "llegada": "test",
-      "maquinista": "test",
-      "detalles": "test",
-      "id": "fc8b9012-6f05-4841-a6f1-d96ba038e76c"
-    },
-    {
-      "nombre": "demo",
-      "sector": "demo",
-      "salida": "demo",
-      "llegada": "demo",
-      "maquinista": "demo",
-      "detalles": "demo",
-      "id": "7d89a68a-27ae-47dc-916c-2f0e6c6b4971"
+      "nombre": "b",
+      "sector": "b",
+      "salida": "b",
+      "llegada": "b",
+      "maquinista": "b",
+      "detalles": "b",
+      "id": "0049b618-3465-4eb9-86c1-b30556657a99"
     }
   ]
 }

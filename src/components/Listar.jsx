@@ -1,6 +1,8 @@
 import logoMetro from '../assets/tren.webp'
 import Mensajes from './Mensajes'
 import { useState, useEffect } from "react"
+import Swal from 'sweetalert2'
+
 
 const Listar = ({ estado,setIdmetro }) => {
     const [rutas, setRutas] = useState([])
@@ -17,7 +19,11 @@ const Listar = ({ estado,setIdmetro }) => {
                 }
                 catch (error) {
                     // Mostrar mensajes de error
-                    console.log(error);
+                    Swal.fire(
+                        'ERROR',
+                        'Ha ocurrido un error al intentar obtener las rutas registradas.',
+                        'error'
+                    )
                 }
             })()
         }
@@ -25,8 +31,18 @@ const Listar = ({ estado,setIdmetro }) => {
 
     const handleDelete = async (id) => {
         try {
-            const confirmar = confirm("Vas a aliminar una ruta")
-            if (confirmar) {
+            const confirmar = await Swal.fire({
+                title: 'Eliminar ruta',
+                text: '¿Estás seguro de que deseas eliminar esta ruta?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#28B463',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            });
+            console.log(confirmar.isConfirmed);
+            if (confirmar.isConfirmed) {
                 const url = `http://localhost:3000/metro/${id}`
                 await fetch(url, {
                     method: 'DELETE',
@@ -36,7 +52,11 @@ const Listar = ({ estado,setIdmetro }) => {
             }
         }
         catch (error) {
-            console.log(error);
+            Swal.fire(
+                'ERROR',
+                'Ha ocurrido un error al intentar eliminar la ruta seleccionada.',
+                'error'
+            )
         }
     }
 
