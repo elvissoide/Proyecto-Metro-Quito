@@ -3,7 +3,7 @@ import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react'
 
-export const Formulario = ({ setEstado, idMetro }) => {
+export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
     // UseState
     const [error, setError] = useState(false) // Mensajes de error
     const [mensaje, setMensaje] = useState(false) // Mensajes de éxito
@@ -17,7 +17,8 @@ export const Formulario = ({ setEstado, idMetro }) => {
     })
     // UseEffect
     useEffect(() => {
-        if (idMetro) {
+        console.log(idMetro);
+        if (idMetro !== null) {
             (async function (idMetro) {
                 try {
                     const respuesta = await (await fetch(`http://localhost:3000/metro/${idMetro}`)).json()
@@ -66,6 +67,7 @@ export const Formulario = ({ setEstado, idMetro }) => {
                 })
                 setEstado(true)
                 setform({})
+                setIdMetro(null);
                 setTimeout(() => {
                     setEstado(false)
                     setform({})

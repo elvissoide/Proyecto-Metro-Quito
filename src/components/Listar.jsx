@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 
 const Listar = ({ estado,setIdmetro }) => {
     const [rutas, setRutas] = useState([])
-    console.log(rutas)
 
     useEffect(() => {
         if (estado || rutas.length >= 0) {
