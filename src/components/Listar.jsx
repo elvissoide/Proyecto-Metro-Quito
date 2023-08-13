@@ -13,6 +13,9 @@ const Listar = ({ estado,setIdmetro }) => {
                 try {
                     // Llamar a una API
                     const respuesta = await (await fetch("http://localhost:3000/metro")).json()
+                    if (!respuesta.ok) {
+                        throw new Error('La solicitud no fue exitosa');
+                    }
                     // Cargar la info en rutas por medio de setRutas
                     setRutas(respuesta)
                     console.log("petición");
@@ -44,9 +47,12 @@ const Listar = ({ estado,setIdmetro }) => {
             console.log(confirmar.isConfirmed);
             if (confirmar.isConfirmed) {
                 const url = `http://localhost:3000/metro/${id}`
-                await fetch(url, {
+                const respuesta = await fetch(url, {
                     method: 'DELETE',
                 })
+                if (!respuesta.ok) {
+                    throw new Error('La solicitud no fue exitosa');
+                }
                 const nuevasRutas = rutas.filter(ruta => ruta.id !== id)
                 setRutas(nuevasRutas)
             }
