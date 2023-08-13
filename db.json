@@ -25,6 +25,15 @@
       "maquinista": "b",
       "detalles": "b",
       "id": "0049b618-3465-4eb9-86c1-b30556657a99"
+    },
+    {
+      "nombre": "a",
+      "sector": "a",
+      "salida": "a",
+      "llegada": "a",
+      "maquinista": "a",
+      "detalles": "a",
+      "id": "3b6bfc19-53fd-48f1-ae03-1f7edc4dd722"
     }
   ]
 }

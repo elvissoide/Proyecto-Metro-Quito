@@ -65,7 +65,7 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
             // Actualizacion de las rutas
             if (form.id) {
                 const url = `http://localhost:3000/metro/${form.id}`
-                await fetch(url, {
+                const respuesta = await fetch(url, {
                     method: 'PUT',
                     body: JSON.stringify(form),
                     headers: { 'Content-Type': 'application/json' }
