@@ -13,9 +13,6 @@ const Listar = ({ estado,setIdmetro }) => {
                 try {
                     // Llamar a una API
                     const respuesta = await (await fetch("http://localhost:3000/metro")).json()
-                    if (!respuesta.ok) {
-                        throw new Error('La solicitud no fue exitosa');
-                    }
                     // Cargar la info en rutas por medio de setRutas
                     setRutas(respuesta)
                     console.log("petición");

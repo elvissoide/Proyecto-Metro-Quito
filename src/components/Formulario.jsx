@@ -23,9 +23,6 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
             (async function (idMetro) {
                 try {
                     const respuesta = await (await fetch(`http://localhost:3000/metroxx/${idMetro}`)).json()
-                    if (!respuesta.ok) {
-                        throw new Error('La solicitud no fue exitosa');
-                    }
                     const { id, nombre, sector, salida, llegada, maquinista, detalles } = respuesta
                     setform({
                         ...form,
