@@ -18,7 +18,7 @@ export const Formulario = ({ setEstado, idMetro, setIdMetro }) => {
     // UseEffect
     useEffect(() => {
         console.log(idMetro);
-        if (idMetro !== null) {
+        if (idMetro) {
             (async function (idMetro) {
                 try {
                     const respuesta = await (await fetch(`http://localhost:3000/metro/${idMetro}`)).json()
